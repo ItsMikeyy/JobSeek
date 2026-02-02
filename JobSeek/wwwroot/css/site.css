@@ -1,0 +1,27 @@
+:root {
+    --jobseek-primary: #6CA651;
+    --jobseek-secondary: #BBCB2E;
+    --jobseek-shadow: #839705;
+    --jobseek-dark: #6B7445;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.jobseek-main-text {
+    color: var(--jobseek-primary)
+}
+
+.jobseek-secondary-text {
+    color: var(--jobseek-secondary)
+}
+
+.jobseek-shadow-text {
+    color: var(--jobseek-shadow)
+}
+
+.jobseek-dark-text {
+    color: var(--jobseek-dark)
+}
