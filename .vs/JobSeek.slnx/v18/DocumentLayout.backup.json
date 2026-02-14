@@ -1,0 +1,139 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\micha\\source\\repos\\JobSeek\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DE223BC6-41A5-4D74-8AF1-C6003F78C139}|JobSeek.Data\\JobSeek.Data.csproj|c:\\users\\micha\\source\\repos\\jobseek\\jobseek.data\\migrations\\20260214200609_addstateandcountrytable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE223BC6-41A5-4D74-8AF1-C6003F78C139}|JobSeek.Data\\JobSeek.Data.csproj|solutionrelative:jobseek.data\\migrations\\20260214200609_addstateandcountrytable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\micha\\source\\repos\\JobSeek\\JobSeek.Data\\Migrations\\20260214200539_AddStateAndCountryTable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:JobSeek.Data\\Migrations\\20260214200539_AddStateAndCountryTable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE223BC6-41A5-4D74-8AF1-C6003F78C139}|JobSeek.Data\\JobSeek.Data.csproj|c:\\users\\micha\\source\\repos\\jobseek\\jobseek.data\\context\\jobseekdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE223BC6-41A5-4D74-8AF1-C6003F78C139}|JobSeek.Data\\JobSeek.Data.csproj|solutionrelative:jobseek.data\\context\\jobseekdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE223BC6-41A5-4D74-8AF1-C6003F78C139}|JobSeek.Data\\JobSeek.Data.csproj|c:\\users\\micha\\source\\repos\\jobseek\\jobseek.data\\entities\\location\\state.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE223BC6-41A5-4D74-8AF1-C6003F78C139}|JobSeek.Data\\JobSeek.Data.csproj|solutionrelative:jobseek.data\\entities\\location\\state.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE223BC6-41A5-4D74-8AF1-C6003F78C139}|JobSeek.Data\\JobSeek.Data.csproj|c:\\users\\micha\\source\\repos\\jobseek\\jobseek.data\\entities\\location\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE223BC6-41A5-4D74-8AF1-C6003F78C139}|JobSeek.Data\\JobSeek.Data.csproj|solutionrelative:jobseek.data\\entities\\location\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE223BC6-41A5-4D74-8AF1-C6003F78C139}|JobSeek.Data\\JobSeek.Data.csproj|c:\\users\\micha\\source\\repos\\jobseek\\jobseek.data\\migrations\\20260214045637_initidentity.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE223BC6-41A5-4D74-8AF1-C6003F78C139}|JobSeek.Data\\JobSeek.Data.csproj|solutionrelative:jobseek.data\\migrations\\20260214045637_initidentity.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE223BC6-41A5-4D74-8AF1-C6003F78C139}|JobSeek.Data\\JobSeek.Data.csproj|c:\\users\\micha\\source\\repos\\jobseek\\jobseek.data\\entities\\identity\\useraccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE223BC6-41A5-4D74-8AF1-C6003F78C139}|JobSeek.Data\\JobSeek.Data.csproj|solutionrelative:jobseek.data\\entities\\identity\\useraccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 218,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20260214200609_AddStateAndCountryTable.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\source\\repos\\JobSeek\\JobSeek.Data\\Migrations\\20260214200609_AddStateAndCountryTable.cs",
+              "RelativeDocumentMoniker": "JobSeek.Data\\Migrations\\20260214200609_AddStateAndCountryTable.cs",
+              "ToolTip": "C:\\Users\\micha\\source\\repos\\JobSeek\\JobSeek.Data\\Migrations\\20260214200609_AddStateAndCountryTable.cs",
+              "RelativeToolTip": "JobSeek.Data\\Migrations\\20260214200609_AddStateAndCountryTable.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAACIAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-14T20:06:09.091Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "20260214200539_AddStateAndCountryTable.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\source\\repos\\JobSeek\\JobSeek.Data\\Migrations\\20260214200539_AddStateAndCountryTable.cs",
+              "RelativeDocumentMoniker": "JobSeek.Data\\Migrations\\20260214200539_AddStateAndCountryTable.cs",
+              "ToolTip": "C:\\Users\\micha\\source\\repos\\JobSeek\\JobSeek.Data\\Migrations\\20260214200539_AddStateAndCountryTable.cs",
+              "RelativeToolTip": "JobSeek.Data\\Migrations\\20260214200539_AddStateAndCountryTable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-14T20:05:39.315Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserAccount.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\source\\repos\\JobSeek\\JobSeek.Data\\Entities\\Identity\\UserAccount.cs",
+              "RelativeDocumentMoniker": "JobSeek.Data\\Entities\\Identity\\UserAccount.cs",
+              "ToolTip": "C:\\Users\\micha\\source\\repos\\JobSeek\\JobSeek.Data\\Entities\\Identity\\UserAccount.cs",
+              "RelativeToolTip": "JobSeek.Data\\Entities\\Identity\\UserAccount.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-14T20:02:28.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "20260214045637_InitIdentity.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\source\\repos\\JobSeek\\JobSeek.Data\\Migrations\\20260214045637_InitIdentity.Designer.cs",
+              "RelativeDocumentMoniker": "JobSeek.Data\\Migrations\\20260214045637_InitIdentity.Designer.cs",
+              "ToolTip": "C:\\Users\\micha\\source\\repos\\JobSeek\\JobSeek.Data\\Migrations\\20260214045637_InitIdentity.Designer.cs",
+              "RelativeToolTip": "JobSeek.Data\\Migrations\\20260214045637_InitIdentity.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-14T20:03:40.178Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "JobSeekDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\source\\repos\\JobSeek\\JobSeek.Data\\Context\\JobSeekDbContext.cs",
+              "RelativeDocumentMoniker": "JobSeek.Data\\Context\\JobSeekDbContext.cs",
+              "ToolTip": "C:\\Users\\micha\\source\\repos\\JobSeek\\JobSeek.Data\\Context\\JobSeekDbContext.cs",
+              "RelativeToolTip": "JobSeek.Data\\Context\\JobSeekDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-14T20:01:48.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "State.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\source\\repos\\JobSeek\\JobSeek.Data\\Entities\\Location\\State.cs",
+              "RelativeDocumentMoniker": "JobSeek.Data\\Entities\\Location\\State.cs",
+              "ToolTip": "C:\\Users\\micha\\source\\repos\\JobSeek\\JobSeek.Data\\Entities\\Location\\State.cs",
+              "RelativeToolTip": "JobSeek.Data\\Entities\\Location\\State.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-14T19:57:51.715Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Country.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\source\\repos\\JobSeek\\JobSeek.Data\\Entities\\Location\\Country.cs",
+              "RelativeDocumentMoniker": "JobSeek.Data\\Entities\\Location\\Country.cs",
+              "ToolTip": "C:\\Users\\micha\\source\\repos\\JobSeek\\JobSeek.Data\\Entities\\Location\\Country.cs",
+              "RelativeToolTip": "JobSeek.Data\\Entities\\Location\\Country.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-14T19:57:39.127Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
