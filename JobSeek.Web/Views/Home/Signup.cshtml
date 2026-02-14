@@ -1,0 +1,31 @@
+﻿@using JobSeek.Web.Models
+@model EmailInputModel
+@section Styles {
+    <link rel="stylesheet" href="~/css/auth.css"/>
+}
+
+<main>
+    <div class="container">
+        <div class="text-center w-50 mx-auto mt-5">
+            <h1 class="jobseek-dark-text">Ready to Start Your Career?</h1>
+            <h1 class="jobseek-dark-text">Sign Up Below!</h1>
+            <form asp-action="AuthorizeEmail" method="post">
+                    <div class="d-flex align-items-center gap-4">
+                        <input asp-for="Email" placeholder="Email" class="form-control auth-input"/>
+                    </div>                
+                    <div>
+                        <button class="auth-button w-75 py-2 fs-4 fw-bold">Get Started</button>
+                    </div>
+                </form>
+            <br />
+            
+            <h5>OR</h5>
+            <div class="my-4">
+                <button class="btn btn-primary w-50 py-3">Sign in with google button</button>
+            </div>
+            <br />
+            <hr />
+            <p class="fs-5">Already have an account? <a class="jobseek-dark-text" href="/login">Login</a></p>
+        </div>
+    </div>
+</main>
