@@ -1,0 +1,90 @@
+﻿@using JobSeek.Web.Models
+@model UserAccountFormModel
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/auth.css" />
+}
+
+<div class="container">
+    <div class="row">
+        <div class="auth-form w-50 m-auto p-5">
+            <h1 class="text-center">Please enter your information</h1>
+
+            <form asp-action="AuthorizeAccount" method="post" class="d-flex flex-column gap-4 mt-5">
+
+                <div class="d-flex justify-content-center gap-3">
+                    <div class="w-100">
+                        <input asp-for="FirstName" class="auth-input form-control" placeholder="First Name" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+
+                    <div class="w-100">
+                        <input asp-for="LastName" class="auth-input form-control" placeholder="Last Name" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center gap-3">
+                    <div class="w-100">
+                        <input asp-for="Email" class="auth-input form-control" placeholder="Email" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="w-100">
+                        <input asp-for="Password" class="auth-input form-control" type="password" placeholder="Password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div>
+                    <input asp-for="DateOfBirth" class="auth-input form-date form-control" type="date" />
+                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex justify-content-center gap-3">
+                    <div class="w-100">
+                        <select asp-for="CountryID" class="auth-input form-select">
+                            <option value="0">Country of Residence</option>
+                            <option value="1">Canada</option>
+                            <option value="2">United States</option>
+                            <option value="3">Mexico</option>
+                        </select>
+                        <span asp-validation-for="CountryID" class="text-danger"></span>
+                    </div>
+
+                    <div class="w-100">
+                        <select asp-for="StateID" class="auth-input form-select">
+                            <option value="0">State / Province</option>
+                            <option value="1">Alberta</option>
+                            <option value="2">British Columbia</option>
+                            <option value="3">California</option>
+                        </select>
+                        <span asp-validation-for="StateID" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center gap-3">
+                    <div class="w-100">
+                        <select asp-for="CityID" class="auth-input form-select">
+                            <option value="0">City</option>
+                            <option value="1">Edmonton</option>
+                            <option value="2">Calgary</option>
+                            <option value="3">Vancouver</option>
+                        </select>
+                        <span asp-validation-for="CityID" class="text-danger"></span>
+                    </div>
+
+                    <div class="w-100">
+                        <input asp-for="ZipCode" class="auth-input form-control" placeholder="Postal/Zip Code" />
+                        <span asp-validation-for="ZipCode" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary w-25">Next</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

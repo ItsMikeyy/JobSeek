@@ -1,0 +1,35 @@
+﻿.site-name-text {
+    color: var(--jobseek-primary);
+}
+
+.site-name-text:hover {
+    color: var(--jobseek-dark);
+    cursor: pointer;
+}
+
+.header-link-text {
+    color: var(--jobseek-shadow);
+}
+
+.header-link-text:hover {
+    color: var(--jobseek-dark);
+}
+
+.login-text{
+    color: var(--jobseek-primary);
+}
+
+.signup-button {
+    color: white;
+    text-decoration: none;
+    background-color: var(--jobseek-primary);
+    padding: 0.5rem 1.25rem;
+    font-weight: bold;
+    border-radius: 3px;
+
+}
+
+.signup-button:hover {
+    color: white;
+    background-color: var(--jobseek-dark);
+}
