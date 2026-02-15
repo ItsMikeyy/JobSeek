@@ -31,8 +31,7 @@ namespace JobSeek.Web.Models
         public int StateID { get; set; }
 
         [Required(ErrorMessage = "City is required")]
-        [Range(1, int.MaxValue, ErrorMessage = "Please select a city")]
-        public int CityID { get; set; }
+        public string City{ get; set; }
 
         [Required(ErrorMessage = "Date of birth is required")]
         [DataType(DataType.Date)]

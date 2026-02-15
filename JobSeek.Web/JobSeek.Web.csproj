@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\js\register.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\imgs\" />
-    <Folder Include="wwwroot\js\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +30,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\JobSeek.Data\JobSeek.Data.csproj" />
+    <ProjectReference Include="..\JobSeek.Services\JobSeek.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\js\register.js" />
   </ItemGroup>
 
 </Project>

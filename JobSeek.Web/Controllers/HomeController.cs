@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using System.Diagnostics;
 using JobSeek.Data;
+using JobSeek.Services;
 
 namespace JobSeek.Controllers
 {
@@ -12,11 +13,15 @@ namespace JobSeek.Controllers
     {
         private readonly JobSeekDBContext _context;
         private readonly UserManager<UserAccount> _userManager;
+        private readonly LocationService _locationService;
 
-        public HomeController(JobSeekDBContext context, UserManager<UserAccount> userManager)
+
+        public HomeController(JobSeekDBContext context, UserManager<UserAccount> userManager, LocationService locationService)
         {
             _context = context;
             _userManager = userManager;
+            _locationService = locationService;
+
         }
 
         public IActionResult Index()
@@ -35,16 +40,17 @@ namespace JobSeek.Controllers
 
         public IActionResult AuthorizeEmail(EmailInputModel model)
         {
-            UserAccountFormModel userModel = new UserAccountFormModel
+            RegisterViewModel userModel = new RegisterViewModel
             {
-                Email = model.Email,
+                UserAccountFormModel = new UserAccountFormModel { Email = model.Email },
             };
             return RedirectToAction("Register", model);
         }
 
-        public IActionResult Register(UserAccountFormModel model)
+        public IActionResult Register(RegisterViewModel model)
         {
-            
+            model.Countries = _locationService.GetCountries();
+
             return View(model);
         }
         [HttpPost]
@@ -63,7 +69,6 @@ namespace JobSeek.Controllers
                 LastName = model.LastName,
                 CountryID = model.CountryID,
                 StateID = model.StateID,
-                CityID = model.CityID,
                 DateOfBirth = model.DateOfBirth,
                 ZipCode = model.ZipCode,
 

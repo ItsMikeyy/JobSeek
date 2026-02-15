@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using JobSeek.Data;
 using JobSeek.Data;
+using JobSeek.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -11,6 +12,10 @@ builder.Services.AddDbContext<JobSeekDBContext>(options =>
 
 builder.Services.AddDefaultIdentity<UserAccount>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<JobSeekDBContext>();
+
+//Custom Services
+builder.Services.AddScoped<LocationService>();
+
 
 builder.Services.AddRazorPages();
 var app = builder.Build();

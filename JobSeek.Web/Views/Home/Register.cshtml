@@ -1,5 +1,5 @@
 ﻿@using JobSeek.Web.Models
-@model UserAccountFormModel
+@model RegisterViewModel
 
 @section Styles {
     <link rel="stylesheet" href="~/css/auth.css" />
@@ -14,69 +14,68 @@
 
                 <div class="d-flex justify-content-center gap-3">
                     <div class="w-100">
-                        <input asp-for="FirstName" class="auth-input form-control" placeholder="First Name" />
-                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                        <input asp-for="UserAccountFormModel.FirstName" class="auth-input form-control" placeholder="First Name" />
+                        <span asp-validation-for="UserAccountFormModel.FirstName" class="text-danger"></span>
                     </div>
 
                     <div class="w-100">
-                        <input asp-for="LastName" class="auth-input form-control" placeholder="Last Name" />
-                        <span asp-validation-for="LastName" class="text-danger"></span>
+                        <input asp-for="UserAccountFormModel.LastName" class="auth-input form-control" placeholder="Last Name" />
+                        <span asp-validation-for="UserAccountFormModel.LastName" class="text-danger"></span>
                     </div>
                 </div>
 
                 <div class="d-flex justify-content-center gap-3">
                     <div class="w-100">
-                        <input asp-for="Email" class="auth-input form-control" placeholder="Email" />
-                        <span asp-validation-for="Email" class="text-danger"></span>
+                        <input asp-for="UserAccountFormModel.Email" class="auth-input form-control" placeholder="Email" />
+                        <span asp-validation-for="UserAccountFormModel.Email" class="text-danger"></span>
                     </div>
 
                     <div class="w-100">
-                        <input asp-for="Password" class="auth-input form-control" type="password" placeholder="Password" />
-                        <span asp-validation-for="Password" class="text-danger"></span>
+                        <input asp-for="UserAccountFormModel.Password" class="auth-input form-control" type="password" placeholder="Password" />
+                        <span asp-validation-for="UserAccountFormModel.Password" class="text-danger"></span>
                     </div>
                 </div>
 
                 <div>
-                    <input asp-for="DateOfBirth" class="auth-input form-date form-control" type="date" />
-                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                    <input asp-for="UserAccountFormModel.DateOfBirth" class="auth-input form-date form-control" type="date" />
+                    <span asp-validation-for="UserAccountFormModel.DateOfBirth" class="text-danger"></span>
                 </div>
 
                 <div class="d-flex justify-content-center gap-3">
                     <div class="w-100">
-                        <select asp-for="CountryID" class="auth-input form-select">
-                            <option value="0">Country of Residence</option>
-                            <option value="1">Canada</option>
-                            <option value="2">United States</option>
-                            <option value="3">Mexico</option>
+                        <select id="country" asp-for="UserAccountFormModel.CountryID" class="auth-input form-select">
+                            <option value="0" selected>Country</option>
+                            @{
+                                foreach(var country in Model.Countries)
+                                {
+                                    <option value=@country.CountryID>@country.Name</option>
+                                }
+                            }
                         </select>
-                        <span asp-validation-for="CountryID" class="text-danger"></span>
+                        <span asp-validation-for="UserAccountFormModel.CountryID" class="text-danger"></span>
                     </div>
 
                     <div class="w-100">
-                        <select asp-for="StateID" class="auth-input form-select">
-                            <option value="0">State / Province</option>
-                            <option value="1">Alberta</option>
-                            <option value="2">British Columbia</option>
-                            <option value="3">California</option>
+                        <select id="state" asp-for="UserAccountFormModel.StateID" class="auth-input form-select">
                         </select>
-                        <span asp-validation-for="StateID" class="text-danger"></span>
+                        <span asp-validation-for="UserAccountFormModel.StateID" class="text-danger"></span>
                     </div>
                 </div>
 
                 <div class="d-flex justify-content-center gap-3">
                     <div class="w-100">
-                        <select asp-for="CityID" class="auth-input form-select">
+                        <select asp-for="UserAccountFormModel.City" class="auth-input form-select">
                             <option value="0">City</option>
                             <option value="1">Edmonton</option>
                             <option value="2">Calgary</option>
                             <option value="3">Vancouver</option>
                         </select>
-                        <span asp-validation-for="CityID" class="text-danger"></span>
+                        <span asp-validation-for="UserAccountFormModel.City" class="text-danger"></span>
                     </div>
 
                     <div class="w-100">
-                        <input asp-for="ZipCode" class="auth-input form-control" placeholder="Postal/Zip Code" />
-                        <span asp-validation-for="ZipCode" class="text-danger"></span>
+                        <input asp-for="UserAccountFormModel.ZipCode" class="auth-input form-control" placeholder="Postal/Zip Code" />
+                        <span asp-validation-for="UserAccountFormModel.ZipCode" class="text-danger"></span>
                     </div>
                 </div>
 
@@ -87,4 +86,9 @@
         </div>
     </div>
 </div>
+
+@section Scripts 
+{
+    <script src="~/js/Register.js"></script>
+}
 
