@@ -26,9 +26,8 @@ namespace JobSeek.Web.Models
         [Range(1, int.MaxValue, ErrorMessage = "Please select a country")]
         public int CountryID { get; set; }
 
-        [Required(ErrorMessage = "State/Province is required")]
-        [Range(1, int.MaxValue, ErrorMessage = "Please select a state/province")]
-        public int StateID { get; set; }
+        public int? StateID { get; set; }
+        public string? StateName { get; set; }
 
         [Required(ErrorMessage = "City is required")]
         public string City{ get; set; }

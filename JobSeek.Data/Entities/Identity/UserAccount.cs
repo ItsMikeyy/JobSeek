@@ -10,7 +10,8 @@ namespace JobSeek.Data
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int CountryID { get; set; }
-        public int StateID { get; set; }
+        public int? StateID { get; set; }
+        public string? StateName { get; set; }
         public string City { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string ZipCode { get; set; }

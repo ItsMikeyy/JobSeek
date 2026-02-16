@@ -54,26 +54,13 @@ namespace JobSeek.Controllers
             return View(model);
         }
         [HttpPost]
-        public IActionResult AuthorizeAccount(UserAccountFormModel model)
+        public IActionResult AuthorizeAccount(RegisterViewModel model)
         {
+            ModelState.Remove("Countries");
             if (!ModelState.IsValid)
             {
                 return RedirectToAction("Register", model);
-            }
-
-            var user = new UserAccount
-            {
-                UserName = model.Email,
-                Email = model.Email,
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                CountryID = model.CountryID,
-                StateID = model.StateID,
-                DateOfBirth = model.DateOfBirth,
-                ZipCode = model.ZipCode,
-
-            };
-
+            }      
 
             return View();
         }
