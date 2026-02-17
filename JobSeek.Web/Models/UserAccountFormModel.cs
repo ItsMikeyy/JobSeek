@@ -2,7 +2,7 @@
 
 namespace JobSeek.Web.Models
 {
-    public class UserAccountFormModel
+    public class UserAccountFormModel : IValidatableObject
     {
         [Required(ErrorMessage = "First name is required")]
         [StringLength(50, MinimumLength = 2)]
@@ -39,5 +39,19 @@ namespace JobSeek.Web.Models
         [Required(ErrorMessage = "Zip/Postal code is required")]
         [StringLength(10, ErrorMessage = "Invalid postal code length")]
         public string ZipCode { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            bool hasStateId = StateID.HasValue;
+            bool hasStateName = !string.IsNullOrWhiteSpace(StateName);
+
+            if (hasStateId == hasStateName)
+            {
+                yield return new ValidationResult(
+                    "Provide either a state selection or enter a state name, but not both.",
+                    new[] { nameof(StateID), nameof(StateName) }
+                );
+            }
+        }
     }
 }
