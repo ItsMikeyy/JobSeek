@@ -1,4 +1,6 @@
-﻿$(document).ready(() => {
+﻿
+
+$(document).ready(() => {
     setState();
     $('#country').on("change", async () => {
         setState();
@@ -6,12 +8,15 @@
 })
 
 const setState = async () => {
+    const stateContainer = $("#state-container");
+    let stateElement = $("#state")
+    let stateValidation = ("#state-validation")
     const countryID = $('#country').find(":selected").val();
     const states = await getStates(Number(countryID));
 
-    let stateElement = $("#state")
     if (states.length <= 0) {
         stateElement.replaceWith(`<input id="state" name="UserAccountFormModel.StateName" asp-for="UserAccountFormModel.StateName" class="auth-input form-control" placeholder="State / Province" />`)
+        stateValidation.replaceWith(`<span id="state-validation" asp-validation-for="UserAccountFormModel.StateName" class="text-danger"></span>`)
         return;
     }
 
@@ -23,7 +28,7 @@ const setState = async () => {
                 <option value="">Select State</option>
             </select>
         `);
-
+    stateValidation.replaceWith(`<span id="state-validation" asp-validation-for="UserAccountFormModel.StateID" class="text-danger"></span>`)
     stateElement = $("#state");
 
     states.forEach((s) => {

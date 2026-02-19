@@ -12,7 +12,7 @@ namespace JobSeek.Web.Controllers
         private readonly LocationService _locationService;
         public AjaxController(JobSeekDBContext jobSeekDBContext, LocationService locationService)
         {
-            jobSeekDBContext = _context;
+            _context = jobSeekDBContext;
             _locationService = locationService;
         }
 

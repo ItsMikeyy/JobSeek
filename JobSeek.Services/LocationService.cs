@@ -29,6 +29,7 @@ namespace JobSeek.Services
                 return false;
             }
 
+            // Free text state
             if (stateID == null && !String.IsNullOrEmpty(stateName))
             {
                 return true;

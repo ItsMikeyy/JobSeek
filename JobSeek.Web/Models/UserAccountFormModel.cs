@@ -48,7 +48,7 @@ namespace JobSeek.Web.Models
             if (hasStateId == hasStateName)
             {
                 yield return new ValidationResult(
-                    "Provide either a state selection or enter a state name, but not both.",
+                    "Invalid State",
                     new[] { nameof(StateID), nameof(StateName) }
                 );
             }
