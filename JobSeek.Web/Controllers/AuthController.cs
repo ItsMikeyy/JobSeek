@@ -55,31 +55,10 @@ namespace JobSeek.Web.Controllers
             return View(vm);
         }
 
-        public IActionResult AuthorizeEmail(EmailInputModel model)
-        {
-            RegisterViewModel userModel = new RegisterViewModel
-            {
-                UserAccountFormModel = new UserAccountFormModel { Email = model.Email },
-            };
-            return RedirectToAction("Register", model);
-        }
 
-        public IActionResult Register(EmailInputModel model)
-        {
-            RegisterViewModel rvm = new RegisterViewModel
-            {
-                Countries = _locationService.GetCountries(),
-                UserAccountFormModel = new UserAccountFormModel
-                {
-                    Email = model.Email
-                }
-            };
-
-            return View(rvm);
-        }
 
         [HttpPost]
-        public async Task<IActionResult> AuthorizeAccount(RegisterViewModel model)
+        public async Task<IActionResult> Signup(RegisterViewModel model)
         {
             model.Countries = _locationService.GetCountries();
 
@@ -100,7 +79,7 @@ namespace JobSeek.Web.Controllers
             if ((!_locationService.IsValidState(model.UserAccountFormModel.CountryID, model.UserAccountFormModel.StateID, model.UserAccountFormModel.StateName)))
             {
                 isValid = false;
-                ModelState.AddModelError("UserAccountFormModel.State", "Not a valid state");
+                ModelState.AddModelError("UserAccountFormModel.StateName", "Not a valid state");
             }
 
             if (!isValid) return View("Register", model);
@@ -123,6 +102,15 @@ namespace JobSeek.Web.Controllers
             //var result = await _userManager.CreateAsync(user, model.UserAccountFormModel.Password);
 
             return View();
+        }
+
+        public IActionResult SignOut()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                _signInManager.SignOutAsync();
+            }
+            return RedirectToAction("index", "Home");
         }
     }
 }

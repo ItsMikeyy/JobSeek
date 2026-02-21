@@ -17,13 +17,15 @@
         <div class="d-flex flex-row align-items-center gap-4">
             @if(!User.Identity.IsAuthenticated)
             {
-                <a class="text-decoration-none fs-5 fw-bolder login-text" href="/login">Log in</a>
-                <a class="signup-button" href="/signup">Sign Up</a>
+                <a class="text-decoration-none fs-5 fw-bolder login-text" href="/auth/login">Log in</a>
+                <a class="signup-button" href="/auth/signup">Sign Up</a>
             }
             else
             {
-                <p>@User.Identity.Name</p>
-                <a class="signup-button" href="/signup">Sign Out</a>
+                <form asp-action="SignOut", asp-controller="Auth" method="post" class="d-flex gap-4 align-items-center">
+                    <p>@User.Identity.Name</p>
+                    <button type="submit" class="signup-button">Sign Out</button>
+                </form>
 
             }
            
