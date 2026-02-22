@@ -21,6 +21,7 @@ namespace JobSeek.Web.Controllers
         }
         public IActionResult Login()
         {
+
             return View();
         }
 

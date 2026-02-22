@@ -1,0 +1,106 @@
+﻿@using JobSeek.Web.Areas.Candidates.Models
+@model DashboardViewModel
+
+
+<h1 class="m-3">Hello @Model.User.FirstName!</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Overview</h2>
+            <br />
+            <div class="row text-center align-items-start g-3">
+                <div class="col-md-4 bg-primary">
+                    <p class="fs-5">Total Applications</p>
+                    <p class="fw-bold fs-3">10</p>
+                </div>
+
+                <div class="col-md-4 bg-warning">
+                    <p class="fs-5">Interviews Scheduled</p>
+                    <p class="fw-bold fs-3">3</p>
+                </div>
+
+                <div class="col-md-4 bg-success">
+                    <p class="fs-5">Offers</p>
+                    <p class="fw-bold fs-3">1</p>
+                </div>
+
+                <div class="col-md-4 bg-danger">
+                    <p class="fs-5">Rejections</p>
+                    <p class="fw-bold fs-3">4</p>
+                </div>
+
+                <div class="col-md-4 bg-info">
+                    <p class="fs-5">Saved Jobs</p>
+                    <p class="fw-bold fs-3">7</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h2>Notifcations</h2>
+        </div>
+    </div>
+    <br />
+    <h2>Job Applications</h2>
+    <br />
+    <table class="w-100 table-bordered table-">
+        <tr>
+            <th>Listing</th>
+            <th>Company</th>
+            <th>Date Applied</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td><a href="">Software Developer</a></td>
+            <td>Google</td>
+            <td>March 10, 2026</td>
+            <td>
+                <select class="form-select">
+                    <option value="value">Submitted</option>
+                    <option value="value">Review</option>
+                    <option value="value">Interview</option>
+                    <option value="value">Offer</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><a href="">Software Developer</a></td>
+            <td>Google</td>
+            <td>March 10, 2026</td>
+            <td>
+                <select class="form-select">
+                    <option value="value">Submitted</option>
+                    <option value="value">Review</option>
+                    <option value="value">Interview</option>
+                    <option value="value">Offer</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><a href="">Software Developer</a></td>
+            <td>Google</td>
+            <td>March 10, 2026</td>
+            <td>
+                <select class="form-select">
+                    <option value="value">Submitted</option>
+                    <option value="value">Review</option>
+                    <option value="value">Interview</option>
+                    <option value="value">Offer</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><a href="">Software Developer</a></td>
+            <td>Google</td>
+            <td>March 10, 2026</td>
+            <td>
+                <select class="form-select">
+                    <option value="value">Submitted</option>
+                    <option value="value">Review</option>
+                    <option value="value">Interview</option>
+                    <option value="value">Offer</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+</div>
