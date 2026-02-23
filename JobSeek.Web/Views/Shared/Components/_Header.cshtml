@@ -22,8 +22,17 @@
             }
             else
             {
-                <form asp-action="SignOut", asp-controller="Auth" method="post" class="d-flex gap-4 align-items-center">
-                    <p>@User.Identity.Name</p>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        @User.Identity.Name
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Dashboard</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                       
+                    </ul>
+                </div>
+                <form asp-action="SignOut" , asp-controller="Auth" method="post" class="d-flex gap-4 align-items-center">
                     <button type="submit" class="signup-button">Sign Out</button>
                 </form>
 
