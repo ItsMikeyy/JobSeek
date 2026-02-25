@@ -15,8 +15,10 @@ namespace JobSeek.Data
         public string City { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string ZipCode { get; set; }
+        public int? CompanyID { get; set; }
         public State State { get; set; }
         public Country Country { get; set; }
+        public Company Company { get; set; }
 
     }
 }

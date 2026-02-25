@@ -14,5 +14,6 @@ namespace JobSeek.Data
         public string Description { get; set; }
 
         public ICollection<JobListing> JobListings { get; set; }
+        public ICollection<UserAccount> Users { get; set; }
     }
 }
