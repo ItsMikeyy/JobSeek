@@ -21,6 +21,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 //Custom Services
 builder.Services.AddScoped<LocationService>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<CompanyService>();
 
 
 builder.Services.AddRazorPages();

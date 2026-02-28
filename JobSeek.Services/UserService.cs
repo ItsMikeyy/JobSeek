@@ -19,6 +19,13 @@ namespace JobSeek.Services
             return _dbContext.Users.Any(u => u.NormalizedEmail == email.ToUpper());
         }
 
+        public void AddUserCompany(Company company, UserAccount user)
+        {
+            user.Company = company;
+            user.CompanyID = company.CompanyID;
+            _dbContext.SaveChanges();
+
+        }
        
     }
 }
