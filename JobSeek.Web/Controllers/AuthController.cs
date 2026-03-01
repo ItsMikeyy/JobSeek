@@ -36,7 +36,7 @@ namespace JobSeek.Web.Controllers
             var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, true, lockoutOnFailure: true);
             if (result.Succeeded)
             {
-                return View();
+                return RedirectToAction("Index", "Dashboard", new { area = "Candidates" });
             }
             else
             {
