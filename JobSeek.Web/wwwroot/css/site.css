@@ -1,8 +1,8 @@
 :root {
-    --jobseek-primary: #6CA651;
-    --jobseek-secondary: #BBCB2E;
-    --jobseek-shadow: #839705;
-    --jobseek-dark: #6B7445;
+    --jobseek-primary: #2E9E4F;
+    --jobseek-secondary: #C8E032;
+    --jobseek-shadow: #1A6B35;
+    --jobseek-dark: #0F3D1F;
     --jobseek-background: #DADDD9;
     --jobseek-background-highlight: #CED2CC;
 }
@@ -10,10 +10,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
-    background-color: var(--jobseek-background);
 }
 
 main {
@@ -49,3 +45,66 @@ main {
 .jobseek-background-highlight {
     background-color: var(--jobseek-background-highlight);
 }
+
+.auth-form {
+    border: 2px solid var(--jobseek-background);
+    border-radius: 20px;
+}
+
+.jobseek-primary-input {
+    border-radius: 10px;
+    padding: 0.5rem;
+    outline: none;
+    transition: padding 0.2s ease;
+}
+
+.jobseek-primary-input:focus {
+    border-color: var(--jobseek-secondary);
+    box-shadow: 0 0 0 0.1rem var(--jobseek-secondary);
+    padding: 0.75rem;
+}
+
+.jobseek-primary-button {
+    background-color: var(--jobseek-primary);
+    color: white;
+    border: solid 3px var(--jobseek-primary);
+    border-radius: 10px;
+    padding: 0 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: background-color ease 0.2s;
+}
+
+.jobseek-primary-button:hover {
+    background-color: var(--jobseek-dark);
+}
+
+.jobseek-primary-button {
+    color: white;
+    border: solid 3px var(--jobseek-primary);
+    border-radius: 10px;
+    padding: 0.5rem 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: background-color ease 0.2s;
+}
+
+.jobseek-primary-button:hover {
+    background-color: var(--jobseek-dark);
+}
+
+.jobseek-secondary-button {
+    color: var(--jobseek-shadow);
+    background-color: white;
+    border: solid 3px var(--jobseek-shadow);
+    padding: 0.5rem 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: background-color ease 0.2s;
+}
+
+.jobseek-secondary-button:hover {
+    background-color: var(--jobseek-background);
+}
+

@@ -28,7 +28,7 @@ const setState = async () => {
         const states = await getStates(Number(countryID));
 
         if (states.length <= 0) {
-            stateElement.replaceWith(`<input id="state" name="UserAccountFormModel.StateName" asp-for="UserAccountFormModel.StateName" class="auth-input form-control" placeholder="State / Province" />`)
+            stateElement.replaceWith(`<input id="state" name="UserAccountFormModel.StateName" asp-for="UserAccountFormModel.StateName" class="jobseek-primary-input form-control" placeholder="State / Province" />`)
             stateValidation.replaceWith(`<span id="state-validation" asp-validation-for="UserAccountFormModel.StateName" class="text-danger"></span>`)
             return;
         }
@@ -37,7 +37,7 @@ const setState = async () => {
 
 
         stateElement.replaceWith(`
-            <select id="state" name="UserAccountFormModel.StateID" class="auth-input form-select">
+            <select id="state" name="UserAccountFormModel.StateID" class="jobseek-primary-input form-select">
                 <option value="">Select State</option>
             </select>
         `);

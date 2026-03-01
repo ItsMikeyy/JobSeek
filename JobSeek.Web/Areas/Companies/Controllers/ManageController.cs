@@ -32,10 +32,10 @@ namespace JobSeek.Web.Areas.Companies.Controllers
                 return Challenge();
             }
 
-            if (_companyService.GetCompanyByUserCompanyID(user.CompanyID.Value) != null) 
-            {
-                return RedirectToAction("Index", "Home");
-            }
+            //if (_companyService.GetCompanyByUserCompanyID(user.CompanyID.Value) != null) 
+            //{
+            //    return RedirectToAction("Index", "Home");
+            //}
 
             return View();
         }

@@ -8,19 +8,19 @@
         <form class="p-5 w-50 mx-auto" method="post" asp-area="companies" asp-controller="manage" asp-action="create">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <input class="form-control" asp-for="CompanyName" placeholder="Company Name" />
+                    <input class="jobseek-primary-input form-control" asp-for="CompanyName" placeholder="Company Name" />
                     <span asp-validation-for="CompanyName" class="text-danger"></span>
                 </div>
                 <div class="col-md-6 col-sm-12">
-                    <input class="form-control" asp-for="Website" type="url" placeholder="Company Website" />
+                    <input class="jobseek-primary-input form-control" asp-for="Website" type="url" placeholder="Company Website" />
                     <span asp-validation-for="Website" class="text-danger"></span>
                 </div>
             </div>
             <br />       
-            <textarea class="w-100 form-control" rows="5" asp-for="Description" placeholder="Company Description"></textarea>
+            <textarea class="w-100 jobseek-primary-input form-control" rows="5" asp-for="Description" placeholder="Company Description"></textarea>
             <span asp-validation-for="Description" class="text-danger"></span>
             <br />
-            <button class="btn btn-primary w-100" type="submit">Create Company</button>
+            <button class="jobseek-primary-button fw-bold w-100" type="submit">Create Company</button>
         </form>
     </div>
 }

@@ -3,8 +3,7 @@
     "outputFileName": "wwwroot/css/main.min.css",
     "inputFiles": [
       "wwwroot/css/header.css",
-      "wwwroot/css/site.css",
-      "wwwroot/lib/bootstrap/dist/css/bootstrap.css"
+      "wwwroot/css/site.css"
     ],
     "minify": {
       "enabled": true

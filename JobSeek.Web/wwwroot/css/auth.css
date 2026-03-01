@@ -16,17 +16,3 @@
     padding: 0.75rem;
 }
 
-.auth-button {
-    background-color: var(--jobseek-baclground);
-    color: var(--jobseek-shadow);
-    border: solid 3px var(--jobseek-background-highlight);
-    border-radius: 10px;
-    transition: background-color ease 0.2s;
-}
-
-.auth-button:hover {
-    background-color: var(--jobseek-background-highlight);
-    color: var(--jobseek-shadow);
-    border: solid 3px var(--jobseek-background-highlight);
-    border-radius: 10px;
-}
