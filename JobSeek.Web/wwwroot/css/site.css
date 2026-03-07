@@ -19,6 +19,31 @@ main {
 p {
     margin: 0;
 }
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--jobseek-dark);
+    border-color: var(--jobseek-dark);
+}
+
+input[type="checkbox"]:hover {
+    border-color: var(--jobseek-dark);
+}
+
+input[type="checkbox"]:focus {
+    outline: 2px solid var(--jobseek-dark);
+    outline-offset: 2px;
+}
 
 .body-content {
     display: flex;

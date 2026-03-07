@@ -40,7 +40,8 @@ namespace JobSeek.Data
         PartTime,
         Contract,
         Seasonal,
-        Internship
+        Internship,
+        Other
     }
 
     public enum SalaryType

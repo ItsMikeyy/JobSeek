@@ -1,0 +1,82 @@
+﻿<div class="container">
+    <h1 class="text jobseek-main-text text-center">Post Job Listing</h1>
+    <div class="row">
+        <form class="w-50 mx-auto">
+            <h3 class="jobseek-dark-text">General</h3>
+            <div class="mt-3 d-flex flex-column gap-2">
+                <input class="fw-bold form-control jobseek-primary-input w-100" placeholder="Job Title"/>
+                <textarea class="form-control jobseek-primary-input w-100" rows="10" placeholder="Job Description"></textarea>
+            </div>
+            <br />
+
+            <h3 class="jobseek-dark-text">Location</h3>
+            <div class="d-flex gap-3 mt-3">
+                <select class="form-select jobseek-primary-input">
+                    <option>Select Country</option>
+                    <option>jdalksjm adak</option>
+                    <option>jdalksjm adak</option>
+                    <option>jdalksjm adak</option>
+                </select>
+                <select class="form-select jobseek-primary-input">
+                    <option>Select State</option>
+                    <option>jdalksjm adak</option>
+                    <option>jdalksjm adak</option>
+                    <option>jdalksjm adak</option>
+                </select>
+            </div>
+            <div class="d-flex gap-3 mt-3">
+                <input class="form-control jobseek-primary-input" placeholder="City" />
+                <input class="form-control jobseek-primary-input" placeholder="Postal Code" />
+            </div>
+            <br />
+            <h3 class="jobseek-dark-text">Job Information</h3>
+            <div class="d-flex flex-column gap-3">
+                <select class="form-control jobseek-primary-input" name="jobType" id="jobType">
+                    <option>Job Type</option>
+                    <option value="FullTime">Full Time</option>
+                    <option value="PartTime">Part Time</option>
+                    <option value="Contract">Contract</option>
+                    <option value="Seasonal">Seasonal</option>
+                    <option value="Internship">Internship</option>
+                    <option value="Other">Other</option>
+                </select>
+                <select class="form-select jobseek-primary-input">
+                    <option>Work Environment</option>
+                    <option>In Office</option>
+                    <option>Hybrid</option>
+                    <option>Remote</option>
+                </select>
+                <div class="d-flex gap-3">
+                    <input class="form-control jobseek-primary-input" placeholder="Minimum Salary" />
+                    <input class="form-control jobseek-primary-input" placeholder="Maximum Salary" />
+                </div>
+                <h6 class="text-center">OR</h6>
+                <div class="d-flex gap-3">
+                    <input class="form-control jobseek-primary-input" placeholder="Salary" />
+                </div>
+                <select class="form-select jobseek-primary-input">
+                    <option>Salary Type</option>
+                    <option>Salary</option>
+                    <option>Hourly</option>
+                    <option>Contract</option>
+                </select>
+            </div>
+            <br />
+            <h3 class="jobseek-dark-text">Job Settings</h3>
+            <div class="d-flex gap-3 flex-column">
+                <div>
+                    <label for="job-expire" class="fs-5 form-label">Expires On</label>
+                    <input id="job-expire" class="form-control jobseek-primary-input" type="datetime-local"/>
+                </div>
+                <div class="d-flex gap-2 align-items-center">
+                    <input id="is-public" type="checkbox" />
+                    <label for="is-public" class="fs-5 form-label m-0">Is Public</label>
+
+                </div>
+            </div>
+            <br />
+            <button class="jobseek-primary-button w-25">Post Listing</button>
+
+        </form>
+    </div>
+</div>
