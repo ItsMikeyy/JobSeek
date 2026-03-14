@@ -1,4 +1,5 @@
 ﻿using JobSeek.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace JobSeek.Services
 {
@@ -24,6 +25,15 @@ namespace JobSeek.Services
             {
                 return false;
             }
+        }
+
+        public async Task<List<JobListing>> GetJobListings(int amount=20)
+        {
+            return await _jobSeekDBContext.JobListings
+                .Include(l => l.Country)
+                .Include(l => l.State)
+                .Include(l => l.Company)
+                .OrderBy(l => l.PostedAt).Take(amount).ToListAsync();
         }
     }
 }

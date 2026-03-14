@@ -1,6 +1,6 @@
 :root {
     --jobseek-primary: #4CAF72;
-    --jobseek-secondary: #A8DE44;
+    --jobseek-secondary: #4CAF9E;
     --jobseek-shadow: #2E7D52;
     --jobseek-dark: #1B5E38;
     --jobseek-background: #DADDD9;
@@ -137,3 +137,17 @@ input[type="checkbox"]:focus {
     background-color: var(--jobseek-background);
 }
 
+.listing-card {
+    height: 200px;
+    border: 2px solid var(--jobseek-secondary);
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.listing-description-short {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

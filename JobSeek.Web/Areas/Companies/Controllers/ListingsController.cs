@@ -34,7 +34,7 @@ namespace JobSeek.Web.Areas.Companies.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            ViewBag.Countries = _locationService.GetCountries();
+            ViewBag.Countries = await _locationService.GetCountries();
             ViewBag.JobType = ParseEnum<JobType>();
             ViewBag.SalaryType = ParseEnum<SalaryType>();
             ViewBag.WorkArrangement = ParseEnum<WorkArrangement>();
@@ -81,7 +81,7 @@ namespace JobSeek.Web.Areas.Companies.Controllers
                 IsActive = model.IsActive,
                 IsPublic = model.IsPublic,
                 CompanyID = user.CompanyID.Value,
-                Employer = user.Company,
+                Company = user.Company,
                 
             };
 

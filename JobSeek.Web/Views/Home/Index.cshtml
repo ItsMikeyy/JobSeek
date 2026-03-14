@@ -1,4 +1,22 @@
-﻿@{
+﻿@using JobSeek.Web.Models.DTO
+@model List<ListingDTO>
+@{
     ViewData["Title"] = "Home";
 }
 
+<div class="container">
+    <form class="row w-50 mx-auto mt-5">
+        <div class="col-md-6">
+            <input class="form-control jobseek-primary-input" placeholder="Search for jobs" />
+        </div>
+        <div class="col-md-6">
+            <input class="form-control jobseek-primary-input" placeholder="Location" />
+        </div>
+    </form>
+    <div class="d-flex w-50 flex-column gap-5 mt-5 mx-auto">
+        @foreach (var listing in Model)
+        {
+            <partial name="components/listings/_listing" model=@listing />
+        }
+    </div>
+</div>

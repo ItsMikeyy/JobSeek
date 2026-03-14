@@ -1,20 +1,39 @@
 using JobSeek.Data;
 using JobSeek.Models;
-using JobSeek.Web.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Identity;
-using System.Diagnostics;
-using JobSeek.Data;
 using JobSeek.Services;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
+using JobSeek.Web.Models.DTO;
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace JobSeek.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly LocationService _locationService;
+        private readonly ListingService _listingService;
+        public HomeController(LocationService locationService, ListingService listingService)
         {
-            return View();
+            _locationService = locationService;
+            _listingService = listingService;
+        }
+        public async Task<IActionResult> Index()
+        {
+            var listings = (await _listingService.GetJobListings()).Select(l => new ListingDTO
+            {
+                Title = l.Title,
+                Description = l.Description,
+                Country = l.Country,
+                State = l.State,
+                StateName = l.StateName,
+                Salary = l.Salary,
+                SalaryMin = l.SalaryMin,
+                SalaryMax = l.SalaryMax,
+                City = l.City,
+                Company = l.Company
+              
+            }).ToList();
+
+            return View(listings);
         }
 
         public IActionResult About()

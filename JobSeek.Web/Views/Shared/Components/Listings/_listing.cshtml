@@ -1,0 +1,27 @@
+﻿@model JobSeek.Web.Models.DTO.ListingDTO
+
+<div class="listing-card">
+    <div class="d-flex justify-content-between">
+        <div class="d-flex flex-column">
+            <h4 class="jobseek-main-text text-decoration-underline">@Model.Title</h4>
+            <p>@Model.Company.CompanyName</p>
+            @{
+                if(Model.Salary != null)
+                {
+                    <p class="jobseek-dark-text fw-bold">@Model.Country.CurrencySymbol@Model.Salary</p>
+                } 
+                else
+                {
+                    <p class="jobseek-dark-text fw-bold">@Model.Country.CurrencySymbol@Model.SalaryMin - @Model.Country.CurrencySymbol@Model.SalaryMax</p>
+                }
+            }
+        </div>
+        <div class="d-flex flex-column">
+            <p class="fs-5 fw-bold text-end jobseek-shadow-text">@Model.Country.Name</p>
+            <p class="text-end">@Model.City, @(Model.State != null ? Model.State.Name : Model.StateName)</p>     
+        </div>
+    </div>
+    <hr />
+    <p class="listing-description-short">@Model.Description</p>
+
+</div>

@@ -27,8 +27,8 @@ namespace JobSeek.Data
         public bool IsActive { get; set; }
         public int CompanyID { get; set; }
         public Country Country { get; set; }
-        public State State { get; set; }
-        public Company Employer { get; set; }
+        public State? State { get; set; }
+        public Company Company { get; set; }
 
         public ICollection<JobApplication> Applications { get; set; }
     }
