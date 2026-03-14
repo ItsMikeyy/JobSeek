@@ -16,9 +16,9 @@ namespace JobSeek.Web.Controllers
             _locationService = locationService;
         }
 
-        public IActionResult GetStatesByCountryID(int id)
+        public async Task<IActionResult> GetStatesByCountryID(int id)
         {
-            List<StateDTO> states = _locationService.GetStatesByCountryID(id).Select(s => new StateDTO(s)).OrderBy(s => s.Name).ToList();
+            List<StateDTO> states = (await _locationService.GetStatesByCountryID(id)).Select(s => new StateDTO(s)).OrderBy(s => s.Name).ToList();
             return Json(states);
         }
     }

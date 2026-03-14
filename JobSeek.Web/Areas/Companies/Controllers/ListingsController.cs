@@ -29,7 +29,7 @@ namespace JobSeek.Web.Areas.Companies.Controllers
         [Authorize]
         public async Task<IActionResult> Post()
         {
-            var user = _userService.GetUserByEmail(User.Identity.Name);
+            var user = await _userService.GetUserByEmail(User.Identity.Name);
             if (user?.CompanyID == null || user?.Company == null)
             {
                 return RedirectToAction("Index", "Home");
@@ -56,7 +56,7 @@ namespace JobSeek.Web.Areas.Companies.Controllers
                 return View(model);
             }
 
-            var user = _userService.GetUserByEmail(User.Identity.Name);
+            var user = await _userService.GetUserByEmail(User.Identity.Name);
             if (user?.CompanyID == null || user?.Company == null)
             {
                 return RedirectToAction("Index", "Home");
@@ -85,8 +85,8 @@ namespace JobSeek.Web.Areas.Companies.Controllers
                 
             };
 
-            State? state = _locationService.GetStateByStateID(model.StateID);
-            Country? country = _locationService.GetCountryByID(model.CountryID);
+            State? state = await _locationService.GetStateByStateID(model.StateID);
+            Country? country = await _locationService.GetCountryByID(model.CountryID);
 
             if (country == null || (state == null && model.StateID != null))
             {

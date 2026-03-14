@@ -11,24 +11,33 @@ namespace JobSeek.Services
             _jobSeekDBContext = jobSeekDBContext;
         }
 
-        public Company? GetCompanyByUserCompanyID(int? userCompanyID)
+        public async Task<Company?> GetCompanyByUserCompanyID(int? userCompanyID)
         {
             if (userCompanyID == null)
             {
                 return null;
             }
-            Company? company = _jobSeekDBContext.Companies.FirstOrDefault(c => c.CompanyID == userCompanyID);
+            Company? company = await _jobSeekDBContext.Companies.FirstOrDefaultAsync(c => c.CompanyID == userCompanyID);
             return company;
         }
 
-        public void CreateCompany(Company company, UserAccount user)
+        public async Task<bool> CreateCompany(Company company, UserAccount user)
         {
-            _jobSeekDBContext.Companies.Add(company);
-            _jobSeekDBContext.SaveChanges(); 
+            try
+            {
+                _jobSeekDBContext.Companies.Add(company);
+                user.Company = company;
+                user.CompanyID = company.CompanyID;
 
-            user.Company = company;
-            user.CompanyID = company.CompanyID;
-            _jobSeekDBContext.SaveChanges();
+                await _jobSeekDBContext.SaveChangesAsync();
+
+
+                return true;
+            } catch (Exception ex)
+            {
+                return false;
+            }
+
 
         }
     }

@@ -1,4 +1,5 @@
 ﻿using JobSeek.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace JobSeek.Services
 {
@@ -11,24 +12,24 @@ namespace JobSeek.Services
         }
 
         #region State
-        public List<State> GetStates()
+        public async Task<List<State>> GetStates()
         {
-            return _jobSeekDBContext.States.ToList();
+            return await _jobSeekDBContext.States.ToListAsync();
         }
 
-        public List<State> GetStatesByCountryID(int countryID)
+        public async Task<List<State>> GetStatesByCountryID(int countryID)
         {
-            return _jobSeekDBContext.States.Where(s => s.CountryID == countryID).ToList();
+            return await _jobSeekDBContext.States.Where(s => s.CountryID == countryID).ToListAsync();
         }
 
-        public State? GetStateByStateID(int? stateID)
+        public async Task<State?> GetStateByStateID(int? stateID)
         {
             if (stateID == null) return null;
 
-            return _jobSeekDBContext.States.FirstOrDefault(s => s.StateID == stateID);
+            return await _jobSeekDBContext.States.FirstOrDefaultAsync(s => s.StateID == stateID);
         }
 
-        public bool IsValidState(int countryID, int? stateID, string? stateName)
+        public async Task<bool> IsValidState(int countryID, int? stateID, string? stateName)
         {
             // If Canada or USA stateName should be null
             if ((countryID == 39 || countryID == 233) && !String.IsNullOrEmpty(stateName)) 
@@ -43,7 +44,7 @@ namespace JobSeek.Services
             } 
             else
             {
-                var states = GetStatesByCountryID(countryID);
+                var states = await GetStatesByCountryID(countryID);
                 return states.Select(s => s.StateID == stateID).Any();
             }
         }
@@ -51,14 +52,14 @@ namespace JobSeek.Services
         #endregion
 
         #region Country
-        public List<Country> GetCountries()
+        public async Task<List<Country>> GetCountries()
         {
-            return _jobSeekDBContext.Countries.ToList();
+            return await _jobSeekDBContext.Countries.ToListAsync();
         }
 
-        public Country? GetCountryByID(int countryID) 
+        public async Task<Country?> GetCountryByID(int countryID) 
         {
-            return _jobSeekDBContext.Countries.FirstOrDefault(c => c.CountryID == countryID);
+            return await _jobSeekDBContext.Countries.FirstOrDefaultAsync(c => c.CountryID == countryID);
         }
 
         #endregion

@@ -65,14 +65,14 @@ namespace JobSeek.Web.Controllers
 
             bool isValid = true;
             //Check if user exists
-            if (_userService.UserEmailExists(model.Email))
+            if (await _userService.UserEmailExists(model.Email))
             {
                 isValid = false;
                 ModelState.AddModelError("Email", "Email already exists");
             }
 
             //
-            if ((!_locationService.IsValidState(model.CountryID, model.StateID, model.StateName)))
+            if ((!await _locationService.IsValidState(model.CountryID, model.StateID, model.StateName)))
             {
                 isValid = false;
                 ModelState.AddModelError("StateName", "Not a valid state");

@@ -25,7 +25,7 @@ namespace JobSeek.Web.Areas.Companies.Controllers
         public async Task<IActionResult> Create()
         {
 
-            var user = _userService.GetUserByEmail(User.Identity?.Name);
+            var user = await _userService.GetUserByEmail(User.Identity?.Name);
             if (user == null)
             {
                 return BadRequest();
@@ -41,9 +41,9 @@ namespace JobSeek.Web.Areas.Companies.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult Create(CreateCompanyModel model)
+        public async Task<IActionResult> Create(CreateCompanyModel model)
         {
-            var user = _userService.GetUserByEmail(User.Identity?.Name);
+            var user = await _userService.GetUserByEmail(User.Identity?.Name);
             if (user == null)
             {
                 return BadRequest();

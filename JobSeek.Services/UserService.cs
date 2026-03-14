@@ -15,19 +15,19 @@ namespace JobSeek.Services
             _userManager = userManager;
         }
 
-        public UserAccount? GetUserByEmail(string? email)
+        public async Task<UserAccount?> GetUserByEmail(string? email)
         {
             if (email == null) return null;
 
-            return _dbContext.Users
+            return await _dbContext.Users
                 .Include(u => u.Company)
                 .ThenInclude(c => c.Users)
-                .FirstOrDefault(u => u.Email == email);
+                .FirstOrDefaultAsync(u => u.Email == email);
         }
 
-        public bool UserEmailExists(string email)
+        public async Task<bool> UserEmailExists(string email)
         {
-            return _dbContext.Users.Any(u => u.NormalizedEmail == email.ToUpper());
+            return await _dbContext.Users.AnyAsync(u => u.NormalizedEmail == email.ToUpper());
         }
 
 
