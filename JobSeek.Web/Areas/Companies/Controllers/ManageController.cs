@@ -25,42 +25,52 @@ namespace JobSeek.Web.Areas.Companies.Controllers
         public async Task<IActionResult> Create()
         {
 
-            var user = await _userManager.GetUserAsync(User);
-
+            var user = _userService.GetUserByEmail(User.Identity?.Name);
             if (user == null)
             {
-                return Challenge();
+                return BadRequest();
             }
 
-            //if (_companyService.GetCompanyByUserCompanyID(user.CompanyID.Value) != null) 
-            //{
-            //    return RedirectToAction("Index", "Home");
-            //}
+            if (user.CompanyID.HasValue && user.Company != null)
+            {
+                return RedirectToAction("Index", "Dashboard");
+            }
 
             return View();
         }
 
         [Authorize]
         [HttpPost]
-        public async Task<IActionResult> Create(CreateCompanyModel model)
+        public IActionResult Create(CreateCompanyModel model)
         {
-            var user = await _userManager.GetUserAsync(User);
+            var user = _userService.GetUserByEmail(User.Identity?.Name);
+            if (user == null)
+            {
+                return BadRequest();
+            }
+
+            if (user.CompanyID.HasValue && user.Company != null)
+            {
+                return RedirectToAction("Index", "Dashboard");
+            }
+
 
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
 
+
+
             Company company = new Company
             {
                 CompanyName = model.CompanyName,
                 Website = model.Website,
-                Description = model.Description
+                Description = model.Description,                
             };
-            _jobSeekDBContext.Add(company);
-            _userService.AddUserCompany(company, user);
+            _companyService.CreateCompany(company, user);
 
-            return View();
+            return RedirectToAction("Dashboard", "Index");
         }
     }
 }

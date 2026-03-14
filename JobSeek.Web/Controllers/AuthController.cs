@@ -47,60 +47,55 @@ namespace JobSeek.Web.Controllers
         }
         public IActionResult Signup()
         {
-            RegisterViewModel vm = new RegisterViewModel
-            {
-                Countries = _locationService.GetCountries(),
-                UserAccountFormModel = new UserAccountFormModel()
-                
-            };
-            return View(vm);
+            ViewBag.Countries = _locationService.GetCountries();            
+            return View();
         }
 
 
 
         [HttpPost]
-        public async Task<IActionResult> Signup(RegisterViewModel model)
+        public async Task<IActionResult> Signup(UserAccountFormModel model)
         {
-            model.Countries = _locationService.GetCountries();
+            ViewBag.Countries = _locationService.GetCountries();
 
             if (!ModelState.IsValid)
             {
-                return View("Register", model);
+                return View(model);
             }
 
             bool isValid = true;
             //Check if user exists
-            if (_userService.UserEmailExists(model.UserAccountFormModel.Email))
+            if (_userService.UserEmailExists(model.Email))
             {
                 isValid = false;
-                ModelState.AddModelError("UserAccountFormModel.Email", "Email already exists");
+                ModelState.AddModelError("Email", "Email already exists");
             }
 
             //
-            if ((!_locationService.IsValidState(model.UserAccountFormModel.CountryID, model.UserAccountFormModel.StateID, model.UserAccountFormModel.StateName)))
+            if ((!_locationService.IsValidState(model.CountryID, model.StateID, model.StateName)))
             {
                 isValid = false;
-                ModelState.AddModelError("UserAccountFormModel.StateName", "Not a valid state");
+                ModelState.AddModelError("StateName", "Not a valid state");
             }
 
-            if (!isValid) return View("Register", model);
+            if (!isValid) return View(model);
 
 
             var user = new UserAccount
             {
-                FirstName = model.UserAccountFormModel.FirstName,
-                LastName = model.UserAccountFormModel.LastName,
-                Email = model.UserAccountFormModel.Email,
-                UserName = model.UserAccountFormModel.Email,
-                CountryID = model.UserAccountFormModel.CountryID,
-                StateID = model.UserAccountFormModel.StateID,
-                StateName = model.UserAccountFormModel.StateName,
-                City = model.UserAccountFormModel.City,
-                DateOfBirth = model.UserAccountFormModel.DateOfBirth,
-                ZipCode = model.UserAccountFormModel.ZipCode,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Email = model.Email,
+                UserName = model.Email,
+                CountryID = model.CountryID,
+                StateID = model.StateID,
+                StateName = model.StateName,
+                City = model.City,
+                DateOfBirth = model.DateOfBirth,
+                ZipCode = model.ZipCode,
             };
 
-            //var result = await _userManager.CreateAsync(user, model.UserAccountFormModel.Password);
+            //var result = await _userManager.CreateAsync(user, model.Password);
 
             return View();
         }

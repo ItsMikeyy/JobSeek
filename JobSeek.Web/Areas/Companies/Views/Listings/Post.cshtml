@@ -1,82 +1,135 @@
-﻿<div class="container">
+﻿@using JobSeek.Web.Areas.Companies.ViewModels
+@model JobListingModel
+
+<div class="container">
     <h1 class="text jobseek-main-text text-center">Post Job Listing</h1>
     <div class="row">
-        <form class="w-50 mx-auto">
+        <form class="w-50 mx-auto" asp-area="Companies" asp-controller="Listings" asp-action="Post">
+            <div asp-validation-summary="All" class="text-danger"></div>
             <h3 class="jobseek-dark-text">General</h3>
             <div class="mt-3 d-flex flex-column gap-2">
-                <input class="fw-bold form-control jobseek-primary-input w-100" placeholder="Job Title"/>
-                <textarea class="form-control jobseek-primary-input w-100" rows="10" placeholder="Job Description"></textarea>
+                <div>
+                    <input asp-for="Title" class="fw-bold form-control jobseek-primary-input w-100" placeholder="Job Title" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div>
+                    <textarea asp-for="Description" class="form-control jobseek-primary-input w-100" rows="10" placeholder="Job Description"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
             </div>
+
             <br />
 
             <h3 class="jobseek-dark-text">Location</h3>
-            <div class="d-flex gap-3 mt-3">
-                <select class="form-select jobseek-primary-input">
-                    <option>Select Country</option>
-                    <option>jdalksjm adak</option>
-                    <option>jdalksjm adak</option>
-                    <option>jdalksjm adak</option>
-                </select>
-                <select class="form-select jobseek-primary-input">
-                    <option>Select State</option>
-                    <option>jdalksjm adak</option>
-                    <option>jdalksjm adak</option>
-                    <option>jdalksjm adak</option>
-                </select>
+            <div class="row">
+                <div class="col-md-6">
+                    <select id="country"
+                            asp-for="CountryID"
+                            class="form-select jobseek-primary-input"
+                            data-state-text-name="StateName"
+                            data-state-select-name="StateName">
+                        <option disabled>Country</option>
+                        @foreach (var country in ViewBag.Countries)
+                        {
+                            <option value="@country.CountryID">@country.Name</option>
+                        }
+                    </select>
+                    <span asp-validation-for="CountryID" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <div id="state-container">
+                        <input id="state" asp-for="StateName" class="form-control jobseek-primary-input" placeholder="State" />
+                        <span id="state-validation" asp-validation-for="StateName" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
-            <div class="d-flex gap-3 mt-3">
-                <input class="form-control jobseek-primary-input" placeholder="City" />
-                <input class="form-control jobseek-primary-input" placeholder="Postal Code" />
+
+            <div class="mt-3">
+                <input asp-for="City" class="form-control jobseek-primary-input w-100" placeholder="City" />
+                <span asp-validation-for="City" class="text-danger"></span>
             </div>
+
             <br />
+
             <h3 class="jobseek-dark-text">Job Information</h3>
-            <div class="d-flex flex-column gap-3">
-                <select class="form-control jobseek-primary-input" name="jobType" id="jobType">
-                    <option>Job Type</option>
-                    <option value="FullTime">Full Time</option>
-                    <option value="PartTime">Part Time</option>
-                    <option value="Contract">Contract</option>
-                    <option value="Seasonal">Seasonal</option>
-                    <option value="Internship">Internship</option>
-                    <option value="Other">Other</option>
-                </select>
-                <select class="form-select jobseek-primary-input">
-                    <option>Work Environment</option>
-                    <option>In Office</option>
-                    <option>Hybrid</option>
-                    <option>Remote</option>
-                </select>
-                <div class="d-flex gap-3">
-                    <input class="form-control jobseek-primary-input" placeholder="Minimum Salary" />
-                    <input class="form-control jobseek-primary-input" placeholder="Maximum Salary" />
+
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <select asp-for="JobType" class="form-select jobseek-primary-input">
+                        <option disabled selected>Job Type</option>
+                        @foreach (var kvp in ViewBag.JobType)
+                        {
+                            <option value="@kvp.Key">@kvp.Value</option>
+                        }
+                    </select>
+                    <span asp-validation-for="JobType" class="text-danger"></span>
                 </div>
-                <h6 class="text-center">OR</h6>
-                <div class="d-flex gap-3">
-                    <input class="form-control jobseek-primary-input" placeholder="Salary" />
+                <div class="col-md-6">
+                    <select asp-for="WorkArrangement" class="form-select jobseek-primary-input">
+                        <option disabled selected>Work Arrangement</option>
+                        @foreach (var kvp in ViewBag.WorkArrangement)
+                        {
+                            <option value="@kvp.Key">@kvp.Value</option>
+                        }
+                    </select>
+                    <span asp-validation-for="WorkArrangement" class="text-danger"></span>
                 </div>
-                <select class="form-select jobseek-primary-input">
-                    <option>Salary Type</option>
-                    <option>Salary</option>
-                    <option>Hourly</option>
-                    <option>Contract</option>
-                </select>
             </div>
+
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <input asp-for="SalaryMin" class="form-control jobseek-primary-input" placeholder="Minimum Salary" />
+                    <span asp-validation-for="SalaryMin" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <input asp-for="SalaryMax" class="form-control jobseek-primary-input" placeholder="Maximum Salary" />
+                    <span asp-validation-for="SalaryMax" class="text-danger"></span>
+                </div>
+            </div>
+
+            <h6 class="text-center mt-3">OR</h6>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <input asp-for="Salary" class="form-control jobseek-primary-input" placeholder="Salary" />
+                    <span asp-validation-for="Salary" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <select asp-for="SalaryType" class="form-select jobseek-primary-input">
+                        <option>Salary Type</option>
+                        @foreach (var kvp in ViewBag.SalaryType)
+                        {
+                            <option value="@kvp.Key">@kvp.Value</option>
+                        }
+                    </select>
+                    <span asp-validation-for="SalaryType" class="text-danger"></span>
+                </div>
+            </div>
+
             <br />
+
             <h3 class="jobseek-dark-text">Job Settings</h3>
             <div class="d-flex gap-3 flex-column">
                 <div>
-                    <label for="job-expire" class="fs-5 form-label">Expires On</label>
-                    <input id="job-expire" class="form-control jobseek-primary-input" type="datetime-local"/>
+                    <label asp-for="ExpiresAt" class="fs-5 form-label">Expires On</label>
+                    <input asp-for="ExpiresAt" class="form-control jobseek-primary-input" type="datetime-local" />
+                    <span asp-validation-for="ExpiresAt" class="text-danger"></span>
                 </div>
                 <div class="d-flex gap-2 align-items-center">
-                    <input id="is-public" type="checkbox" />
-                    <label for="is-public" class="fs-5 form-label m-0">Is Public</label>
-
+                    <input asp-for="IsPublic" type="checkbox" />
+                    <label asp-for="IsPublic" class="fs-5 form-label m-0">Is Public</label>
+                    <span asp-validation-for="IsPublic" class="text-danger"></span>
                 </div>
             </div>
+
             <br />
-            <button class="jobseek-primary-button w-25">Post Listing</button>
+
+            <button class="jobseek-primary-button w-25" type="submit">Post Listing</button>
 
         </form>
     </div>
 </div>
+
+@section Scripts {
+    <script src="~/js/state.js"></script>
+}

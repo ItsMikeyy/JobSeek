@@ -1,5 +1,6 @@
 ﻿using JobSeek.Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace JobSeek.Services
 {
@@ -14,18 +15,22 @@ namespace JobSeek.Services
             _userManager = userManager;
         }
 
+        public UserAccount? GetUserByEmail(string? email)
+        {
+            if (email == null) return null;
+
+            return _dbContext.Users
+                .Include(u => u.Company)
+                .ThenInclude(c => c.Users)
+                .FirstOrDefault(u => u.Email == email);
+        }
+
         public bool UserEmailExists(string email)
         {
             return _dbContext.Users.Any(u => u.NormalizedEmail == email.ToUpper());
         }
 
-        public void AddUserCompany(Company company, UserAccount user)
-        {
-            user.Company = company;
-            user.CompanyID = company.CompanyID;
-            _dbContext.SaveChanges();
 
-        }
        
     }
 }

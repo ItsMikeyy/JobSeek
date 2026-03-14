@@ -4,21 +4,28 @@ namespace JobSeek.Services
 {
     public class LocationService
     {
-        private readonly JobSeekDBContext _dbContext;
-        public LocationService(JobSeekDBContext context) 
+        private readonly JobSeekDBContext _jobSeekDBContext;
+        public LocationService(JobSeekDBContext jobSeekDBContext) 
         {
-            _dbContext = context;
+            _jobSeekDBContext = jobSeekDBContext;
         }
 
         #region State
         public List<State> GetStates()
         {
-            return _dbContext.States.ToList();
+            return _jobSeekDBContext.States.ToList();
         }
 
         public List<State> GetStatesByCountryID(int countryID)
         {
-            return _dbContext.States.Where(s => s.CountryID == countryID).ToList();
+            return _jobSeekDBContext.States.Where(s => s.CountryID == countryID).ToList();
+        }
+
+        public State? GetStateByStateID(int? stateID)
+        {
+            if (stateID == null) return null;
+
+            return _jobSeekDBContext.States.FirstOrDefault(s => s.StateID == stateID);
         }
 
         public bool IsValidState(int countryID, int? stateID, string? stateName)
@@ -38,22 +45,20 @@ namespace JobSeek.Services
             {
                 var states = GetStatesByCountryID(countryID);
                 return states.Select(s => s.StateID == stateID).Any();
-
             }
-
-
-
         }
 
         #endregion
 
-
-
-
         #region Country
         public List<Country> GetCountries()
         {
-            return _dbContext.Countries.ToList();
+            return _jobSeekDBContext.Countries.ToList();
+        }
+
+        public Country? GetCountryByID(int countryID) 
+        {
+            return _jobSeekDBContext.Countries.FirstOrDefault(c => c.CountryID == countryID);
         }
 
         #endregion

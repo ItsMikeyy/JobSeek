@@ -13,7 +13,7 @@ namespace JobSeek.Data
         public string Website { get; set; }
         public string Description { get; set; }
 
-        public ICollection<JobListing> JobListings { get; set; }
-        public ICollection<UserAccount> Users { get; set; }
+        public ICollection<JobListing> JobListings { get; set; } = new List<JobListing>();
+        public ICollection<UserAccount> Users { get; set; } = new List<UserAccount>();
     }
 }

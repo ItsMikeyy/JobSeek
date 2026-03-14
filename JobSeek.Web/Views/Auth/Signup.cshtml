@@ -1,5 +1,5 @@
 ﻿@using JobSeek.Web.Models
-@model RegisterViewModel
+@model UserAccountFormModel
 @section Styles {
     <link rel="stylesheet" href="~/css/auth.css"/>
 }
@@ -12,8 +12,8 @@
                 <div id="email-form-container" class="mt-5">
                     <form id="email-form" class="d-flex gap-3 flex-column">
                         <div>
-                            <input id="email" asp-for="UserAccountFormModel.Email" placeholder="Email" class="form-control jobseek-primary-input" />
-                            <span class="text-danger" asp-validation-for="UserAccountFormModel.Email"></span>
+                            <input id="email" asp-for="Email" placeholder="Email" class="form-control jobseek-primary-input" />
+                            <span class="text-danger" asp-validation-for="Email"></span>
                         </div>
                         <div>
                         <button type="submit" id="get-started" class="jobseek-secondary-button w-75">Get Started</button>
@@ -25,64 +25,65 @@
 
                 <div class="d-flex justify-content-center gap-3">
                     <div class="w-100">
-                        <input asp-for="UserAccountFormModel.FirstName" class="jobseek-primary-input form-control" placeholder="First Name" />
-                        <span asp-validation-for="UserAccountFormModel.FirstName" class="text-danger"></span>
+                        <input asp-for="FirstName" class="jobseek-primary-input form-control" placeholder="First Name" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
                     </div>
 
                     <div class="w-100">
-                        <input asp-for="UserAccountFormModel.LastName" class="jobseek-primary-input form-control" placeholder="Last Name" />
-                        <span asp-validation-for="UserAccountFormModel.LastName" class="text-danger"></span>
+                        <input asp-for="LastName" class="jobseek-primary-input form-control" placeholder="Last Name" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
                     </div>
                 </div>
 
                 <div class="d-flex justify-content-center gap-3">
                     <div class="w-100">
-                        <input id="signup-email-form" asp-for="UserAccountFormModel.Email" class="jobseek-primary-input form-control" placeholder="Email" />
-                        <span asp-validation-for="UserAccountFormModel.Email" class="text-danger"></span>
+                        <input id="signup-email-form" asp-for="Email" class="jobseek-primary-input form-control" placeholder="Email" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
 
                     <div class="w-100">
-                        <input asp-for="UserAccountFormModel.Password" class="jobseek-primary-input form-control" type="password" placeholder="Password" />
-                        <span asp-validation-for="UserAccountFormModel.Password" class="text-danger"></span>
+                        <input asp-for="Password" class="jobseek-primary-input form-control" type="password" placeholder="Password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
                 </div>
 
                 <div>
-                    <input asp-for="UserAccountFormModel.DateOfBirth" class="jobseek-primary-input form-date form-control" type="date" />
-                    <span asp-validation-for="UserAccountFormModel.DateOfBirth" class="text-danger"></span>
+                    <input asp-for="DateOfBirth" class="jobseek-primary-input form-date form-control" type="date" />
+                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
                 </div>
 
                 <div class="d-flex justify-content-center gap-3">
                     <div class="w-100">
-                        <select id="country" asp-for="UserAccountFormModel.CountryID" class="jobseek-primary-input form-select">
-                            <option value="0" selected>Country</option>
+                        <select id="country"
+                                asp-for="CountryID"
+                                class="jobseek-primary-input form-select"
+                                data-state-text-name="StateName"
+                                data-state-select-name="StateID">
+                            <option value="0">Country</option>
                             @{
-                                foreach (var country in Model.Countries)
+                                foreach (var country in ViewBag.Countries)
                                 {
                                     <option value=@country.CountryID>@country.Name</option>
                                 }
                             }
                         </select>
-                        <span asp-validation-for="UserAccountFormModel.CountryID" class="text-danger"></span>
+                        <span asp-validation-for="CountryID" class="text-danger"></span>
                     </div>
-                    @if (!String.IsNullOrEmpty(Model.UserAccountFormModel.StateName))
-                    {
-                    }
                     <div id="state-container" class="w-100">
-                        <input id="state" asp-for="UserAccountFormModel.StateName" type="text" class="jobseek-primary-input form-control" placeholder="State / Province" />
-                        <span id="state-validation" asp-validation-for="UserAccountFormModel.StateName" class="text-danger"></span>
+                        <input id="state" asp-for="StateName" type="text" class="jobseek-primary-input form-control" placeholder="State / Province" />
+                        <span id="state-validation" asp-validation-for="StateName" class="text-danger"></span>
                     </div>
                 </div>
 
                 <div class="d-flex justify-content-center gap-3">
                     <div class="w-100">
-                        <input asp-for="UserAccountFormModel.City" class="jobseek-primary-input form-control" placeholder="City" />
-                        <span asp-validation-for="UserAccountFormModel.City" class="text-danger"></span>
+                        <input asp-for="City" class="jobseek-primary-input form-control" placeholder="City" />
+                        <span asp-validation-for="City" class="text-danger"></span>
                     </div>
 
                     <div class="w-100">
-                        <input asp-for="UserAccountFormModel.ZipCode" class="jobseek-primary-input form-control" placeholder="Postal/Zip Code" />
-                        <span asp-validation-for="UserAccountFormModel.ZipCode" class="text-danger"></span>
+                        <input asp-for="ZipCode" class="jobseek-primary-input form-control" placeholder="Postal/Zip Code" />
+                        <span asp-validation-for="ZipCode" class="text-danger"></span>
                     </div>
                 </div>
 
@@ -91,6 +92,9 @@
                 </div>
             </form>
         </div>
+        <br />
+        <p class="fs-5">Already have an account? <a class="jobseek-dark-text" href="/login">Login</a></p>
+
 
       @*       <br />
             
@@ -106,5 +110,5 @@
 </main>
 
 @section Scripts {
-    <script src="~/js/signup.js"></script>
+    <script src="~/js/state.js"></script>
 }
