@@ -78,7 +78,7 @@
     <div class="container mt-5">
         <div class="d-flex justify-content-between">
             <h2>Job Listings</h2>
-            <a href="/companies/listings/post" class="jobseek-primary-button px-2">Post a Listing</a>
+            <a class="jobseek-primary-button px-2" asp-controller="listings" asp-action="post">Post a Listing</a>
         </div>
             <div class="w-100 gap-5 mt-5 mx-auto">
                 @foreach (var listing in Model)

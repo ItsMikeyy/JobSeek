@@ -11,6 +11,11 @@ namespace JobSeek.Services
             _jobSeekDBContext = jobSeekDBContext;
         }
 
+        public async Task<JobListing?> GetJobListingByID(int listingID)
+        {
+            return await _jobSeekDBContext.JobListings.FirstOrDefaultAsync(l => l.JobID == listingID);
+        }
+
         public async Task<bool> AddJobListing(JobListing listing, Company company)
         {
             try

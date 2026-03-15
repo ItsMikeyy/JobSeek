@@ -3,7 +3,7 @@
 <div class="listing-card p-4">
     <div class="d-flex justify-content-between">
         <div class="d-flex flex-column">
-            <a class="jobseek-main-text text-decoration-underline fw-bold fs-4 header-link-text" href="/listings/@Model.JobID">@Model.Title</a>
+            <a class="jobseek-main-text text-decoration-underline fw-bold fs-4 header-link-text" asp-controller="Listing" asp-action="Index" asp-route-id="@Model.JobID">@Model.Title</a>
             <p>@Model.Company.CompanyName</p>
             @{
                 if(Model.Salary != null)
