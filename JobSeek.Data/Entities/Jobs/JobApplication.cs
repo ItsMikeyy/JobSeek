@@ -12,14 +12,14 @@ namespace JobSeek.Data
         public int JobListingID { get; set; }
         public JobListing JobListing { get; set; }
 
-        public int CandidateID { get; set; }
-        public Candidate Candidate { get; set; }
+        public int UserID { get; set; }
+        public UserAccount Candidate { get; set; }
 
         public int? ResumeID { get; set; }
-        public CandidateDocument Resume { get; set; }
+        public UserDocument Resume { get; set; }
 
         public int? CoverLetterID { get; set; }
-        public CandidateDocument CoverLetter { get; set; }
+        public UserDocument CoverLetter { get; set; }
 
         public DateTime AppliedAt { get; set; }
 

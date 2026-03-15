@@ -4,6 +4,7 @@ namespace JobSeek.Web.Models.DTO
 {
     public class ListingDTO
     {
+        public int JobID { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public Country Country { get; set; }

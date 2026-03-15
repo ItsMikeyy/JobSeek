@@ -19,6 +19,7 @@ namespace JobSeek.Data
         public State State { get; set; }
         public Country Country { get; set; }
         public Company Company { get; set; }
+        public ICollection<JobApplication> JobApplications { get; set; } = new List<JobApplication>();
 
     }
 }

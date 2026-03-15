@@ -21,7 +21,13 @@ namespace JobSeek.Services
 
             return await _dbContext.Users
                 .Include(u => u.Company)
-                .ThenInclude(c => c.Users)
+                    .ThenInclude(c => c.JobListings)
+                        .ThenInclude(l => l.Country)
+                .Include(u => u.Company)
+                    .ThenInclude(c => c.JobListings)
+                        .ThenInclude(l => l.State)
+                .Include(u => u.Company)
+                    .ThenInclude(c => c.Users)
                 .FirstOrDefaultAsync(u => u.Email == email);
         }
 

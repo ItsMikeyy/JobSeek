@@ -20,6 +20,7 @@ namespace JobSeek.Controllers
         {
             var listings = (await _listingService.GetJobListings()).Select(l => new ListingDTO
             {
+                JobID = l.JobID,
                 Title = l.Title,
                 Description = l.Description,
                 Country = l.Country,
@@ -30,6 +31,7 @@ namespace JobSeek.Controllers
                 SalaryMax = l.SalaryMax,
                 City = l.City,
                 Company = l.Company
+                
               
             }).ToList();
 

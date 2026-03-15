@@ -29,8 +29,7 @@ namespace JobSeek.Data
         
         public DbSet<Country> Countries { get; set; }
         public DbSet<State> States { get; set; }
-        public DbSet<Candidate> Candidates { get; set; }
-        public DbSet<CandidateDocument> CandidateDocuments { get; set; }
+        public DbSet<UserDocument> UserDocuments { get; set; }
         public DbSet<Company> Companies{ get; set; }
         public DbSet<JobApplication> JobApplications { get; set; }
         public DbSet<JobListing> JobListings { get; set; }

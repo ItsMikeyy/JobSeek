@@ -1,9 +1,9 @@
 ﻿@model JobSeek.Web.Models.DTO.ListingDTO
 
-<div class="listing-card">
+<div class="listing-card p-4">
     <div class="d-flex justify-content-between">
         <div class="d-flex flex-column">
-            <h4 class="jobseek-main-text text-decoration-underline">@Model.Title</h4>
+            <a class="jobseek-main-text text-decoration-underline fw-bold fs-4 header-link-text" href="/listings/@Model.JobID">@Model.Title</a>
             <p>@Model.Company.CompanyName</p>
             @{
                 if(Model.Salary != null)

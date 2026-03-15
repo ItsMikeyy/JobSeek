@@ -3,14 +3,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace JobSeek.Data
 {
-    [Table("CandidateDocuments")]
-    public class CandidateDocument
+    [Table("UserDocuments")]
+    public class UserDocument
     {
         [Key]
         public int DocumentID { get; set; }
 
-        public int CandidateID { get; set; }
-        public Candidate Candidate { get; set; }
+        public int UserID { get; set; }
+        public UserAccount Candidate { get; set; }
 
         public string FileName { get; set; }
         public string FilePath { get; set; } 
